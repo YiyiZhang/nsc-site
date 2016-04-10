@@ -1,0 +1,16 @@
+<h1>Editing Static Page</h1>
+
+<%= render 'form' %>
+<%= render 'new_image' %>
+
+<% if @static_page.file_attachments.count > 0  %>
+  <% @static_page.file_attachments.each do |attachment| %>
+    <p><%= attachment.attachment_name %></p>
+    <% if FileAttachment.IMAGE_TYPES.include?(attachment.attachment_content_type) %>
+      <%= image_tag attachment.attachment.url %>
+    <% end %>
+    <%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>
+<%= link_to 'Show', @static_page %> |
+<%= link_to 'Back', static_pages_path %>

@@ -1,0 +1,15 @@
+
+<form action="/static_pages/save_file" method="post" enctype="multipart/form-data">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="POST">
+
+  <input type="hidden" name="id" value="<%= @static_page.id %>">
+  <label>Image name:
+    <input type="text" name="file_attachment[attachment_name]">
+  </label>
+  <br>
+  <label>File:
+    <input id="uploadInput" type="file" name="file_attachment[attachment]" >
+  </label>
+  <input type="submit" value="Upload>">
+</form>
