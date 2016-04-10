@@ -12,10 +12,19 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
+  
+  BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.smtp_settings = {
+    address: "newsanctuarynyc.org",
+    port: 587,
+    enable_starttls_auto: false,
+    user_name: ENV["NSC_USERNAME"],
+    password: ENV["NSC_PASSWORD"]
+  }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

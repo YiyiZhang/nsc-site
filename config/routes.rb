@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :events
+  resources :posts
+  resources :static_pages
+  resources :file_attachments, only: [:destroy]
+
+  devise_for :users
+  root 'static_pages#welcome'
+  post '/static_pages/save_file'
+  get ':static_page_name/' => 'static_pages#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
