@@ -22,7 +22,12 @@ class StaticPagesController < ApplicationController
   # GET /static_pages/1
   # GET /static_pages/1.json
   def show
-    render "static_pages/pages/#{@static_page.name}"
+    if @static_page.nil?
+      @static_page = StaticPage.find_by_name('home')
+      redirect_to :root
+    else
+      render "static_pages/pages/#{@static_page.name}" 
+    end
   end
 
   # GET /static_pages/new
