@@ -4,7 +4,7 @@ class FileAttachmentsController < ApplicationController
   def destroy
     @file_attachment.destroy
     if @file_attachment.attachable_type == 'StaticPage'
-      redirect_to edit_static_page_path(@file_attachment.attachable.idea)
+      redirect_to edit_static_page_path(@file_attachment.attachable.id)
     end
   end
   def update
