@@ -31,9 +31,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       ## Custom
-      t.integer :account_type # 0 = staff, 1 = volunteer, 2 = client
-      t.boolean :is_admin
-      
+      t.integer :account_type, default: 2, null: false # 0 = staff, 1 = volunteer, 2 = client
+      t.boolean :is_admin, default: false, null: false
+      t.boolean :approved, default: false, null: false
+
 
       t.timestamps null: false
     end
