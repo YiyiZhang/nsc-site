@@ -1,0 +1,34 @@
+
+<h1>User List</h1>
+
+<h3><%= link_to "All Users", :action => "show" %>
+
+<%= link_to "Users awaiting approval", :action => "show", :approved => "false" %></h3>
+<h3><table>
+  <% @users.each do |user| %>
+    <tr>
+    <td>
+        <%= user.id %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= user.account_type %>
+      </td>
+      <td>
+       <% if !user.approved %>
+        not approved
+       <% else%>
+        approved
+       <% end %>
+      </td>
+
+
+
+      <td>
+    </tr>
+  <% end %>
+</table>
+
+</h3>
