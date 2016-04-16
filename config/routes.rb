@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :file_attachments, only: [:destroy]
   resource :admin
   devise_for :users
+  post '/admin/edit_user/:id' => 'admins#edit_user', as: :edit_user
   root 'static_pages#welcome'
   post '/static_pages/save_file'
   get ':static_page_name/' => 'static_pages#show'

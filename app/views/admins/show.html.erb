@@ -3,32 +3,33 @@
 
 <h3><%= link_to "All Users", :action => "show" %>
 
-<%= link_to "Users awaiting approval", :action => "show", :approved => "false" %></h3>
-<h3><table>
+<%= link_to "Users awaiting approval", :action => "show", :approved => "false" %>
+<%= link_to "Staff", :action => "show", :approved => "false" %>
+<%= link_to "Volunteers", :action => "show", :approved => "false" %>
+<%= link_to "Clients", :action => "show", :approved => "false" %></h3>
+<h3>
   <% @users.each do |user| %>
-    <tr>
-    <td>
-        <%= user.id %>
-      </td>
-      <td>
-        <%= user.email %>
-      </td>
-      <td>
-        <%= user.account_type %>
-      </td>
-      <td>
-       <% if !user.approved %>
-        not approved
-       <% else%>
-        approved
-       <% end %>
-      </td>
+  <form class="" action="<%= edit_user_url(id: user.id) %>" method="post">
+    <%= auth_token %>
+    <%= user.email %>
+    <select name="user[account_type]">
+      <option value="0" <%= user.account_type == 0 ? "selected" : nil %>>Staff</option>
+      <option value="1" <%= user.account_type == 1 ? "selected" : nil %>>Volunteer</option>
+      <option value="2" <%= user.account_type == 2 ? "selected" : nil %>>Client</option>
+    </select>
+    <% if current_user.is_admin %>
+      <select name="user[is_admin]">
+        <option value="false" <%= !user.is_admin ? "selected" : nil %>>Standard</option>
+        <option value="true" <%= user.is_admin ? "selected" : nil %>>Admin</option>
+      </select>
+    <% end %>
+    <select name="user[approved]">
+      <option value="false" <%= !user.approved ? "selected" : nil %>>Pending</option>
+      <option value="true" <%= user.approved ? "selected" : nil %>>Approved</option>
+    </select>
+    <button type="submit" name="button">Update User</button>
+  </form>
 
-
-
-      <td>
-    </tr>
   <% end %>
-</table>
 
 </h3>

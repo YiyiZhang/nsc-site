@@ -11,6 +11,9 @@
   <% if flash[:errors] %>
     <p id="errors"><%= flash[:errors] %></p>
   <% end %>
+  <% if flash[:notices] %>
+    <p id="notices"><%= flash[:notices] %></p>
+  <% end %>
   <% if user_signed_in? %>
     <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %> |
     <%= link_to('Edit account', edit_user_registration_path) %>
