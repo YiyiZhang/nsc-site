@@ -1,35 +1,56 @@
 
 <h1>User List</h1>
 
-<h3><%= link_to "All Users", :action => "show" %>
-
-<%= link_to "Users awaiting approval", :action => "show", :approved => "false" %>
-<%= link_to "Staff", :action => "show", :approved => "false" %>
-<%= link_to "Volunteers", :action => "show", :approved => "false" %>
-<%= link_to "Clients", :action => "show", :approved => "false" %></h3>
+<ul>
+  <p>Filters</p>
+  <li><%= link_to "All Users", :action => "show" %></li>
+  <li><%= link_to "Users awaiting approval", :action => "show", :approved => "false" %></li>
+  <li><%= link_to "Staff", :action => "show", :account_type => "0" %></li>
+  <li><%= link_to "Volunteers", :action => "show", :account_type => "1" %></li>
+  <li><%= link_to "Clients", :action => "show", :account_type => "2" %></li>
+</ul>
 <h3>
+  <table>
+    <tr>
+      <td>User Email</td>
+      <td>Type</td>
+      <td>Level</td>
+      <td>Status</td>
+    </tr>
   <% @users.each do |user| %>
-  <form class="" action="<%= edit_user_url(id: user.id) %>" method="post">
-    <%= auth_token %>
-    <%= user.email %>
-    <select name="user[account_type]">
-      <option value="0" <%= user.account_type == 0 ? "selected" : nil %>>Staff</option>
-      <option value="1" <%= user.account_type == 1 ? "selected" : nil %>>Volunteer</option>
-      <option value="2" <%= user.account_type == 2 ? "selected" : nil %>>Client</option>
-    </select>
-    <% if current_user.is_admin %>
-      <select name="user[is_admin]">
-        <option value="false" <%= !user.is_admin ? "selected" : nil %>>Standard</option>
-        <option value="true" <%= user.is_admin ? "selected" : nil %>>Admin</option>
-      </select>
-    <% end %>
-    <select name="user[approved]">
-      <option value="false" <%= !user.approved ? "selected" : nil %>>Pending</option>
-      <option value="true" <%= user.approved ? "selected" : nil %>>Approved</option>
-    </select>
-    <button type="submit" name="button">Update User</button>
-  </form>
-
+    <tr>
+      <form class="" action="<%= edit_user_url(id: user.id) %>" method="post">
+        <td>
+          <%= auth_token %>
+          <%= user.email %>
+        </td>
+        <td>
+          <select name="user[account_type]">
+            <option value="0" <%= user.account_type == 0 ? "selected" : nil %>>Staff</option>
+            <option value="1" <%= user.account_type == 1 ? "selected" : nil %>>Volunteer</option>
+            <option value="2" <%= user.account_type == 2 ? "selected" : nil %>>Client</option>
+          </select>
+        </td>
+        <% if current_user.is_admin %>
+        <td>
+          <select name="user[is_admin]">
+            <option value="false" <%= !user.is_admin ? "selected" : nil %>>Standard</option>
+            <option value="true" <%= user.is_admin ? "selected" : nil %>>Admin</option>
+          </select>
+          <% end %>
+        </td>
+        <td>
+          <select name="user[approved]">
+            <option value="false" <%= !user.approved ? "selected" : nil %>>Pending</option>
+            <option value="true" <%= user.approved ? "selected" : nil %>>Approved</option>
+          </select>
+        </td>
+        <td>
+          <button type="submit" name="button">Update User</button>
+        </td>
+      </form>
+    </tr>
   <% end %>
+</table>
 
 </h3>

@@ -8,8 +8,9 @@ module ApplicationHelper
     HTML
   end
 
-  def image_url(name)
-    return unless @static_page
-    @static_page.file_attachments.where(name: name.to_s)
+  def image_tag_by_name(name, opts)
+    raise "No static_page set." unless @static_page
+    url = @static_page.file_attachments.find_by_attachment_name(name.to_s).attachment.url
+    return image_tag(url, opts)
   end
 end

@@ -1,6 +1,7 @@
 class FileAttachmentsController < ApplicationController
   before_action :set_file_attachment, only: [:destroy, :update]
-
+  before_action :authenticate_user!
+  
   def destroy
     @file_attachment.destroy
     if @file_attachment.attachable_type == 'StaticPage'

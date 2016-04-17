@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :ensure_admin
+  before_action :authenticate_user!
   def show
     @users = User.where(approved: params[:approved] || [true, false])
   end
