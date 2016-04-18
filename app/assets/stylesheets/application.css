@@ -13,3 +13,103 @@
  *= require_tree .
  *= require_self
  */
+
+/* Structure */
+body {
+  background: red;
+ 	font-size:22px;
+ 	line-height: 32px;
+ 	color: white;
+ 	word-wrap:break-word !important;
+}
+
+p {
+  	text-align: center;
+}
+
+/* Headers */
+header {
+ 	margin: 0 auto;
+}
+
+h1 {
+ 	font-size: 60px;
+ 	text-align: center;
+ 	color: black;
+  margin-top: 100px;
+  text-align:center;
+  font-size:60px;
+}
+
+h3 {
+ 	font-size: 30px;
+ 	text-align: center;
+ 	color: black;
+}
+
+h3 a {
+ 	color: black;
+}
+
+/* Navigation */
+
+a {
+  	color: black;
+}
+
+nav {
+ 	margin: 50px 0;
+ 	background-color: orange;
+}
+
+nav ul {
+ 	padding: 0;
+   margin: 0;
+ 	list-style: none;
+ 	position: relative;
+}
+
+nav ul li {
+ 	display:inline-block;
+ 	background-color: purple;
+}
+
+nav a {
+ 	display:block;
+ 	padding:0 10px;
+ 	color:black;
+ 	font-size:20px;
+ 	line-height: 40px;
+ 	text-decoration:none;
+}
+
+nav a:hover {
+ 	background-color: green;
+}
+
+ /* Hide Dropdowns by default */
+nav ul ul {
+ 	display: none;
+ 	position: absolute;
+ 	top: 40px; /* Height of navbar */
+}
+
+nav ul li:hover > ul { /* Display Dropdowns on hover */
+ 	display:inherit;
+}
+
+nav ul ul li { /* Dropdown 1 */
+ 	width:170px;
+ 	float:none;
+ 	display:list-item;
+ 	position: relative;
+}
+
+nav ul ul ul li { /* Dropdowns after 1 */
+ 	position: relative;
+ 	top:-60px;
+ 	left:170px;
+}
+
+ /* li > a:after { content:  ' v'; } Dropdown symbol */
+ /* li > a:only-child:after { content: ''; } Dropdown symbol */
