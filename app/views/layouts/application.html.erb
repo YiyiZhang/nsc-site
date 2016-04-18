@@ -1,3 +1,6 @@
+<!--Edit Home Page here-->
+<!--ERB file is an HTML file with bits of ruby in it. Before it's loaded up and served to the client (the Browser) it's run through an interpeter that executes the ruby and is able to insert the results into the HTML-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +10,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!--Put menus, universal elements here-->
+
+  <!--End menus, universal elements-->
 <div>
   <% if flash[:errors] %>
     <p id="errors"><%= flash[:errors] %></p>
@@ -21,7 +27,7 @@
     <%= link_to('Sign up', new_user_registration_path)  %>
   <% end %>
 </div>
-<%= yield %>
+<%= yield %> <!--evaluates to the corresponding page for the page one is currently on (e.g. home, about, etc.)-->
 
 </body>
 </html>
