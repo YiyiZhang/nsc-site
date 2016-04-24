@@ -57,17 +57,23 @@
  .logo {
   text-decoration:none;
   border:0;
-  width : 100px;
-  height: 100px;
-  margin : 0;
-  padding : 0;
-  background : url(/images/nsclogo.svg) no-repeat 0 0;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  background: image-url("nsclogo.svg") no-repeat;
  }
 
  .logo a {
   display : block;
-  width: 100px;
-  height: auto;
+  width: 150px;
+  height: 150px;
+ }
+
+ .logo a:hover {
+   display: none;
  }
 
  /* Navigation */
