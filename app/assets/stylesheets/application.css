@@ -14,102 +14,137 @@
  *= require_self
  */
 
-/* Structure */
-body {
-  background: red;
- 	font-size:22px;
- 	line-height: 32px;
- 	color: white;
- 	word-wrap:break-word !important;
-}
-
-p {
-  	text-align: center;
-}
-
-/* Headers */
-header {
- 	margin: 0 auto;
-}
-
-h1 {
- 	font-size: 60px;
- 	text-align: center;
- 	color: black;
-  margin-top: 100px;
-  text-align:center;
-  font-size:60px;
-}
-
-h3 {
- 	font-size: 30px;
- 	text-align: center;
- 	color: black;
-}
-
-h3 a {
- 	color: black;
-}
-
-/* Navigation */
-
-a {
-  	color: black;
-}
-
-nav {
- 	margin: 50px 0;
- 	background-color: orange;
-}
-
-nav ul {
- 	padding: 0;
+ /* Structure */
+ body {
+   width: 100%;
    margin: 0;
- 	list-style: none;
- 	position: relative;
-}
+   font-size: 12px;
+   line-height: 20px;
+   color: black;
+   word-wrap:break-word !important;
+ }
 
-nav ul li {
- 	display:inline-block;
- 	background-color: purple;
-}
+ p {
+   	text-align: center;
+ }
 
-nav a {
- 	display:block;
- 	padding:0 10px;
- 	color:black;
- 	font-size:20px;
- 	line-height: 40px;
- 	text-decoration:none;
-}
+ /* Headers */
+ header {
+   width: 100%;
+   margin: 0 0;
+ }
 
-nav a:hover {
- 	background-color: green;
-}
+ h1 {
+   font-size: 60px;
+   text-align: center;
+   color: black;
+   margin-top: 10px;
+   text-align:center;
+   font-size: 16px;
+ }
 
- /* Hide Dropdowns by default */
-nav ul ul {
- 	display: none;
- 	position: absolute;
- 	top: 40px; /* Height of navbar */
-}
+ h3 {
+  	font-size: 14px;
+  	text-align: center;
+  	color: black;
+ }
 
-nav ul li:hover > ul { /* Display Dropdowns on hover */
- 	display:inherit;
-}
+ h3 a {
+  	color: black;
+ }
 
-nav ul ul li { /* Dropdown 1 */
- 	width:170px;
- 	float:none;
- 	display:list-item;
- 	position: relative;
-}
+ /* Logo */
+ .logo {
+  text-decoration:none;
+  border:0;
+  width : 100px;
+  height: 100px;
+  margin : 0;
+  padding : 0;
+  background : url(/images/nsclogo.svg) no-repeat 0 0;
+ }
 
-nav ul ul ul li { /* Dropdowns after 1 */
- 	position: relative;
- 	top:-60px;
- 	left:170px;
-}
+ .logo a {
+  display : block;
+  width: 100px;
+  height: auto;
+ }
+
+ /* Navigation */
+
+ a {
+   color: white;
+
+   &:visited {
+     color: white;
+   }
+
+   &:hover {
+     color: #fff;
+     background-color: #000;
+   }
+ }
+
+ nav {
+   width: 100%;
+   margin: 0 0;
+   color: white;
+   background-color: black;
+ }
+
+ nav ul {
+   padding: 0;
+   margin: 0;
+   color: white;
+   list-style: none;
+   position: relative;
+ }
+
+ nav ul li {
+  	display:inline-block;
+    width: 14%;
+    color: white;
+  	background-color: black;
+ }
+
+ nav a {
+  	display:block;
+    width: 100%;
+  	padding:0 10px;
+  	color: white;
+  	font-size: 14px;
+  	line-height: 30px;
+  	text-decoration:none;
+ }
+
+ nav a:hover {
+   color: white;
+   background-color: red;
+ }
+
+  /* Hide Dropdowns by default */
+ nav ul ul {
+  	display: none;
+  	position: absolute;
+  	top: 40px; /* Height of navbar */
+ }
+
+ nav ul li:hover > ul { /* Display Dropdowns on hover */
+  	display:inherit;
+ }
+
+ nav ul ul li { /* Dropdown 1 */
+  	width:170px;
+  	float:none;
+  	display:list-item;
+  	position: relative;
+ }
+
+ nav ul ul ul li { /* Dropdowns after 1 */
+   position: relative;
+   top:-60px;
+   left:170px;
+ }
 
  /* li > a:after { content:  ' v'; } Dropdown symbol */
  /* li > a:only-child:after { content: ''; } Dropdown symbol */
