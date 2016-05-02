@@ -1,5 +1,8 @@
 <!--Edit Home Page here-->
 <!--ERB file is an HTML file with bits of ruby in it. Before it's loaded up and served to the client (the Browser) it's run through an interpeter that executes the ruby and is able to insert the results into the HTML-->
+<!--All this shit gets inserted at the yield-->
+
+<div class=content-area>
 <p>
   <strong>
   <%= @static_page.title %>
@@ -10,4 +13,7 @@
 <p>
   <%= @static_page.body %>
 </p>
-  <%= image_tag_by_name(:torch, class: [:test, :test2], id: 5, alt: "Some alt text") %>
+
+  <%= image_tag_by_name(:torch, class: :banner_images, id:5, alt: "Some alt text") %>
+
+</div>
