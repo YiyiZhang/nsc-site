@@ -78,7 +78,7 @@
 
  /* Navigation */
 
- a {
+nav a {
    color: white;
 
    &:visited {
@@ -151,17 +151,20 @@
    top:-60px;
    left:170px;
  }
-
+.account-bar {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
  /* li > a:after { content:  ' v'; } Dropdown symbol */
  /* li > a:only-child:after { content: ''; } Dropdown symbol */
 
  /* Content-area */
  .content-area {
    margin-left: 20px;
-   color: orange;
  }
 
- .banner_images {
+ .banner-images {
    width: 100%;
    height: auto;
  }

@@ -1,0 +1,18 @@
+<p>
+  <strong>Title:</strong>
+  <%= @static_page.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @static_page.body %>
+</p>
+
+<% if @static_page.file_attachments.count > 0  %>
+  <p>attachments: </p>
+  <% @static_page.file_attachments.each do |attachment| %>
+    <% if FileAttachment.IMAGE_TYPES.include?(attachment.attachment_content_type) %>
+      <%= image_tag attachment.attachment.url %>
+    <% end %>
+  <% end %>
+<% end %>

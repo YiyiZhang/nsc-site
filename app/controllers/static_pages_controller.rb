@@ -1,14 +1,15 @@
 class StaticPagesController < ApplicationController
   before_action :set_static_page, only: [:show, :edit, :update, :destroy, :save_file]
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: [:show, :home]
 
 
   # GET /static_pages
   # GET /static_pages.json
-  def welcome
+  def home
     @static_page = StaticPage.find_by_name('home')
-     render "static_pages/pages/home"
+    render "static_pages/pages/home"
   end
+
   def save_file
     # @file = @static_page.file_attachments.create(attachment: request.body, attachment_name: file_params[:attachment_name])
     @file = @static_page.file_attachments.create(file_params)
@@ -26,7 +27,11 @@ class StaticPagesController < ApplicationController
       @static_page = StaticPage.find_by_name('home')
       redirect_to :root
     else
-      render "static_pages/pages/#{@static_page.name}" 
+      if lookup_context.exists?("static_pages/pages/#{@static_page.name}")
+        render "static_pages/pages/#{@static_page.name}"
+      else
+        render :show
+      end
     end
   end
 

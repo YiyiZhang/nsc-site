@@ -13,38 +13,44 @@
   <!--Put menus, universal elements here-->
   <header>
     <div class=logo><a href="#"></a></div>
+    <div class=account-bar>
+      <% if user_signed_in? %>
+        Logged in as <%= current_user.email %>
+        <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %> |
+        <%= link_to('Edit account', edit_user_registration_path) %>
+      <% else %>
+        <%= link_to('Create Account', new_user_registration_path)  %> |
+        <%= link_to('Sign in', new_user_session_path) %>
+      <% end %>
+    </div>
       <nav>
           <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a>
+              <li><a href="/home">Home</a></li>
+              <li><a href="/about">About</a>
                 <ul>
-                    <li><a href="#">Mission Statement</a></li>
-                    <li><a href="#">Leadership Team</a></li>
+                    <li><a href="/mission">Mission Statement</a></li>
+                    <li><a href="/leadership">Leadership Team</a></li>
                 </ul>
               </li>
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Accompaniment</a></li>
-              <li><a href="#">Legal Clinic</a></li>
-              <li><a href="#">Campaigns</a></li>
-              <li><a href="#">Resources & Sponsors</a></li>
+              <li><a href="/action">Action</a></li>
+              <li><a href="/accompaniment">Accompaniment</a></li>
+              <li><a href="/legal">Legal Clinic</a></li>
+              <li><a href="/campaigns">Campaigns</a></li>
+              <li><a href="/resources">Resources & Sponsors</a></li>
           </ul>
       </nav>
 </header>
   <!--End menus, universal elements-->
 <div>
-  <% if flash[:errors] %>
-    <p id="errors"><%= flash[:errors] %></p>
-  <% end %>
-  <% if flash[:notices] %>
-    <p id="notices"><%= flash[:notices] %></p>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %> |
-    <%= link_to('Edit account', edit_user_registration_path) %>
-  <% else %>
-    <%= link_to('Sign up', new_user_registration_path)  %>
-  <% end %>
+
+
 </div>
+<% if flash[:errors] %>
+  <p id="errors"><%= flash[:errors] %></p>
+<% end %>
+<% if flash[:notices] %>
+  <p id="notices"><%= flash[:notices] %></p>
+<% end %>
 <%= yield %> <!--evaluates to the corresponding page for the page one is currently on (e.g. home, about, etc.)-->
 
 </body>

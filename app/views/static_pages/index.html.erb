@@ -1,18 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Static Pages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @static_pages.each do |static_page| %>
+<div class="content-area">
+  <% @static_pages.each do |static_page| %>
+    <section class="list-item-box">
       <ul>
         <li>Name: <%= static_page.name %></li>
         <li>Title: <%= static_page.title %></li>
@@ -23,10 +14,9 @@
           <%= link_to 'Destroy', static_page, method: :delete, data: { confirm: 'Are you sure?' } %>
         </li>
       </ul>
-    <% end %>
-  </tbody>
-</table>
+    </section>
+  <% end %>
+  <br>
 
-<br>
-
-<%= link_to 'New Static page', new_static_page_path %>
+  <%= link_to 'New Static page', new_static_page_path %>
+</div>

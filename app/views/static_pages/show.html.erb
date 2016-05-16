@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @static_page.title %>
@@ -9,6 +7,15 @@
   <strong>Body:</strong>
   <%= @static_page.body %>
 </p>
+
+<% if @static_page.file_attachments.count > 0  %>
+  <p>attachments: </p>
+  <% @static_page.file_attachments.each do |attachment| %>
+    <% if FileAttachment.IMAGE_TYPES.include?(attachment.attachment_content_type) %>
+      <%= image_tag attachment.attachment.url %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_static_page_path(@static_page) %> |
 <%= link_to 'Back', static_pages_path %>
