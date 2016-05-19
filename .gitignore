@@ -48,3 +48,4 @@ bower.json
 .powenv
 .env
 Procfile
+.DS_Store
