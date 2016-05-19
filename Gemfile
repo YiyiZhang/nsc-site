@@ -46,6 +46,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'foreman'
   gem 'seed_dump'
+  gem 'dotenv-rails'
+  gem "letter_opener"
   # Access an IRB console on exception pages or by using <%= console %> in views
   #gem 'web-console', '~> 2.0'
 

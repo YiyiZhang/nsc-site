@@ -1,18 +1,18 @@
-<p>
-  <strong>Title:</strong>
-  <%= @static_page.title %>
-</p>
+<section class=left-text>
+  <p>
+    <strong>Title:</strong>
+    <%= @static_page.title %>
+  </p>
 
 <p>
   <strong>Body:</strong>
   <%= @static_page.body %>
 </p>
 
-<% if @static_page.file_attachments.count > 0  %>
-  <p>attachments: </p>
-  <% @static_page.file_attachments.each do |attachment| %>
-    <% if FileAttachment.IMAGE_TYPES.include?(attachment.attachment_content_type) %>
-      <%= image_tag attachment.attachment.url %>
-    <% end %>
-  <% end %>
-<% end %>
+</section>
+<section class=top-image>
+  <%= image_tag_by_name(:top, class: "top-image", id:5, width: "100%", height: "100%", alt: "Some alt text") %>
+</section>
+<section class=bottom-image>
+  <%= image_tag_by_name(:bottom, class: "bottom-image", width: "100%", height: "100%", alt: "Some alt text") %>
+</section>

@@ -2,7 +2,10 @@
 <!--ERB file is an HTML file with bits of ruby in it. Before it's loaded up and served to the client (the Browser) it's run through an interpeter that executes the ruby and is able to insert the results into the HTML-->
 <!--All this shit gets inserted at the yield-->
 
-<div class=content-area>
+<section class=top-banner>
+  <%= image_tag_by_name(:banner, class: "top-banner-image", id:5, width: "100%", height: "300px", alt: "Some alt text") %>
+</section>
+<div class=bottom-flex>
   <section class=left-text>
     <p>
       <%= @static_page.title %>
@@ -11,7 +14,10 @@
       <%= @static_page.body %>
     </p>
   </section>
-  <section class=right-image>
-    <%= image_tag_by_name(:home_image, class: :banner_images, id:5, alt: "Some alt text") %>
+  <section class=center-calendar>
+    <img src="https://placekitten.com/500/400" alt="">
+  </section>
+  <section class=right-flyer>
+    <img src="https://placekitten.com/300/400" alt="">
   </section>
 </div>

@@ -10,7 +10,9 @@ module ApplicationHelper
 
   def image_tag_by_name(name, opts)
     raise "No static_page set." unless @static_page
-    url = @static_page.file_attachments.find_by_attachment_name(name.to_s).attachment.url
-    return image_tag(url, opts)
+
+    url = @static_page.file_attachments.find_by_attachment_name(name.to_s).try(:attachment).try(:url)
+    return image_tag(url, opts) if url
+    nil
   end
 end

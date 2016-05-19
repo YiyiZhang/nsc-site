@@ -5,7 +5,11 @@
 
   <input type="hidden" name="id" value="<%= @static_page.id %>">
   <label>Image name:
-    <input type="text" name="file_attachment[attachment_name]">
+    <select name="file_attachment[attachment_name]" >
+      <% @available_image_names.each do |name| %>
+        <option value="<%= name %>"><%= name %></option>
+      <% end  %>
+    </select>
   </label>
   <br>
   <label>File:

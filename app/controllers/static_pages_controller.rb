@@ -11,13 +11,20 @@ class StaticPagesController < ApplicationController
   end
 
   def save_file
-    # @file = @static_page.file_attachments.create(attachment: request.body, attachment_name: file_params[:attachment_name])
-    @file = @static_page.file_attachments.create(file_params)
-    @file.save
-    render :edit
+    if !@static_page.image_names.include?(file_params[:attachment_name])
+      flash[:errors] = "You must select from the list of names."
+      redirect_to edit_static_page_url(@static_page.id)
+    elsif !file_params[:attachment]
+      flash[:errors] = "You must select a file."
+      redirect_to edit_static_page_url(@static_page.id)
+    else
+      @file = @static_page.file_attachments.create(file_params)
+      @file.save
+      render :edit
+    end
   end
   def index
-    @static_pages = StaticPage.all
+    @static_pages = StaticPage.all.sort
   end
 
   # GET /static_pages/1
@@ -87,17 +94,19 @@ class StaticPagesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_static_page
-      @static_page = StaticPage.find(params[:id]) if params[:id]
-      @static_page = StaticPage.find_by_name(params[:static_page_name]) if params[:static_page_name]
+  def set_static_page
+    @static_page = StaticPage.find(params[:id]) if params[:id]
+    @static_page = StaticPage.find_by_name(params[:static_page_name]) if params[:static_page_name]
+    @available_image_names = []
+    @available_image_names = @static_page.image_names - @static_page.file_attachments.pluck(:attachment_name) if @static_page.image_names
+  end
 
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def static_page_params
-      params.require(:static_page).permit(:name, :title, :body)
-    end
-    def file_params
-      params.require(:file_attachment).permit(:attachment_name, :attachment)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def static_page_params
+    params[:static_page][:image_names] = params[:static_page][:image_names].split.compact.uniq
+    params.require(:static_page).permit(:name, :title, :body, image_names: [])
+  end
+  def file_params
+    params.require(:file_attachment).permit(:attachment_name, :attachment)
+  end
 end

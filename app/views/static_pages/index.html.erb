@@ -1,13 +1,15 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Static Pages</h1>
 <div class="content-area">
+  <h1>Listing Static Pages</h1>
   <% @static_pages.each do |static_page| %>
     <section class="list-item-box">
       <ul>
         <li>Name: <%= static_page.name %></li>
         <li>Title: <%= static_page.title %></li>
         <li>Body text: <%= static_page.body %></li>
+        <li>Image names: <%= static_page.image_names.to_s %></li>
         <li>
           <%= link_to 'Show', static_page %> |
           <%= link_to 'Edit', edit_static_page_path(static_page) %> |

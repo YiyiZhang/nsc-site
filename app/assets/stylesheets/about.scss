@@ -1,0 +1,19 @@
+.about section {
+  display: inline-block;
+  border: 1px solid red;
+}
+
+.about .left-text {
+  width: calc(60% - 20px);
+  height: 900px;
+}
+
+.about .top-image {
+  width: 40%;
+  height: 300px;
+}
+
+.about .bottom-image {
+  width: 40%;
+  height: 300px;
+}
