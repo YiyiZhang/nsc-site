@@ -1,7 +1,6 @@
 
 .banner-3-panel section {
   display: inline-block;;
-  border: 1px solid red;
 }
 .banner-3-panel .bottom-flex {
   display: flex;
@@ -9,15 +8,15 @@
 }
 .banner-3-panel .top-banner {
   width: 100%;
-  height: 300px;
+  max-height: 500px;
 }
 .banner-3-panel .left-text {
-  width: 40%;
+  width: 33%;
 }
 .banner-3-panel .center-calendar {
-  width: 20%;
+  width: 33%;
 }
 .banner-3-panel .right-flyer {
-  width: 40%;
+  width: 33%;
 
 }

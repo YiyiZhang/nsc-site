@@ -98,7 +98,7 @@ class StaticPagesController < ApplicationController
     @static_page = StaticPage.find(params[:id]) if params[:id]
     @static_page = StaticPage.find_by_name(params[:static_page_name]) if params[:static_page_name]
     @available_image_names = []
-    @available_image_names = @static_page.image_names - @static_page.file_attachments.pluck(:attachment_name) if @static_page.image_names
+    @available_image_names = @static_page.image_names - @static_page.file_attachments.pluck(:attachment_name) if @static_page.try(:image_names)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
