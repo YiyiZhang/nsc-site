@@ -21,7 +21,10 @@
    font-size: 12px;
    line-height: 20px;
    color: black;
-   word-wrap:break-word !important;
+   word-wrap:break-word;
+   /*footer stuff below*/
+   min-height: 100%;
+   margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
  }
 
  p {
@@ -58,8 +61,8 @@
  .logo {
   text-decoration:none;
   border:0;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   margin: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -112,15 +115,15 @@ nav a {
     width: 14%;
     color: white;
   	background-color: black;
+    text-align: center;
  }
 
  nav a {
   	display:block;
     width: 100%;
-  	padding:0 10px;
   	color: white;
   	font-size: 14px;
-  	line-height: 30px;
+  	line-height: 50px;
   	text-decoration:none;
  }
 
@@ -133,7 +136,7 @@ nav a {
  nav ul ul {
   	display: none;
   	position: absolute;
-  	top: 40px; /* Height of navbar */
+  	top: 50px; /* Height of navbar */
  }
 
  nav ul li:hover > ul { /* Display Dropdowns on hover */
@@ -141,10 +144,11 @@ nav a {
  }
 
  nav ul ul li { /* Dropdown 1 */
-  	width:170px;
+  	width:100%;
   	float:none;
   	display:list-item;
   	position: relative;
+    left: -50%; /*keeps dropdown menu item centered under dropdown*/
  }
 
  nav ul ul ul li { /* Dropdowns after 1 */
@@ -169,3 +173,17 @@ nav a {
    width: 100%;
    height: auto;
  }
+
+ /* Footer */
+
+footer {
+ 	height: 100px;
+  background-color: #3e3e3e;
+  padding: 50px;
+  text-align: center;
+ }
+
+/* Images */
+img {
+  width: 100%;
+}

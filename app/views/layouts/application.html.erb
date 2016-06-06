@@ -43,16 +43,23 @@
   <!--End menus, universal elements-->
 <div>
 
-
 </div>
+
 <% if flash[:errors] %>
   <p id="errors"><%= flash[:errors] %></p>
 <% end %>
 <% if flash[:notices] %>
   <p id="notices"><%= flash[:notices] %></p>
 <% end %>
+
 <div class="<%= "#{params[:controller]} #{params[:action]} #{params[:static_page_name] || StaticPage.where(id: params[:id]).first.try(:name)} #{@static_page.try(:class_string)}" %>">
   <%= yield %> <!--evaluates to the corresponding page for the page one is currently on (e.g. home, about, etc.)-->
+
+  <footer>
+    New Sanctuary Coalition - NYC <br/>
+    info@newsanctuarynyc.org<br/>
+    239 Thompson Street, NYC<br/>
+  </footer>
 </div>
 
 </body>
