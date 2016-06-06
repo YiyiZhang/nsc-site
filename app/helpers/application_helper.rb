@@ -13,6 +13,7 @@ module ApplicationHelper
 
     url = @static_page.file_attachments.find_by_attachment_name(name.to_s).try(:attachment).try(:url)
     return image_tag(url, opts) if url
+    return image_tag("https://placekitten.com/#{opts[:width][-1] == "%" ? opts[:width].to_i * 10 : opts[:width].to_i}/#{opts[:height].to_i}")
     nil
   end
 end
