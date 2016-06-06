@@ -104,7 +104,7 @@ class StaticPagesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def static_page_params
     params[:static_page][:image_names] = params[:static_page][:image_names].split.compact.uniq
-    params.require(:static_page).permit(:name, :title, :body, image_names: [])
+    params.require(:static_page).permit(:name, :title, :body, :class_string, image_names: [])
   end
   def file_params
     params.require(:file_attachment).permit(:attachment_name, :attachment)

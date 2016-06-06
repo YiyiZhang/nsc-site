@@ -10,6 +10,7 @@
         <li>Title: <%= static_page.title %></li>
         <li>Body text: <%= static_page.body %></li>
         <li>Image names: <%= static_page.image_names.to_s %></li>
+        <li>CSS class string: <%= static_page.class_string %></li>
         <li>
           <%= link_to 'Show', static_page %> |
           <%= link_to 'Edit', edit_static_page_path(static_page) %> |

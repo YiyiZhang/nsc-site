@@ -31,7 +31,7 @@ gem 'devise'
 gem 'paperclip'
 
 # use google_calendar for simple Gcal integration
-gem 'google_calendar'
+gem 'googlecalendar'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
